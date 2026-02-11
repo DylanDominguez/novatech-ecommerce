@@ -102,18 +102,19 @@
 
                     <!-- Products Grid -->
                     <div class="products-grid" id="productsGrid">
-                        <!-- Product 1 -->
-                        <div class="product-card" data-category="smartphones">
+                        <!-- Productos -->
+                        {% for producto in productos %}
+                        <div class="product-card" data-category="{{ producto.categoria.nombre }}">
                             <div class="product-image-wrapper">
-                                <img src="{% static 'novatech/img/descarga.png' %}" alt="">
+                                <img src="{{ producto.imagen.url }}">
                             </div>
                             <div class="product-info">
-                                <div class="product-category">Smartphones</div>
-                                <h3 class="product-name">iPhone 15 Pro Max</h3>
-                                <p class="product-description">Latest flagship with A17 Pro chip, titanium design, and advanced camera system.</p>
+                                <div class="product-category">{{ producto.categoria.nombre }}</div>
+                                <h3 class="product-name">{{ producto.nombre }}</h3>
+                                <p class="product-description">{{ producto.corta_descripcion }}</p>
                                 <div class="product-footer">
                                     <div>
-                                        <span class="product-price">$1,199</span>
+                                        <span class="product-price">${{ producto.precio }}</span>
                                     </div>
                                     <button class="add-to-cart-btn" data-id="1" data-name="iPhone 15 Pro Max" data-price="1199" data-category="smartphones">
                                         <i class="bi bi-cart-plus"></i> Añadir
@@ -121,107 +122,7 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Product 2 -->
-                        <div class="product-card" data-category="smartphones">
-                            <div class="product-image-wrapper">
-                                <img src="{% static 'novatech/img/descarga.png' %}" alt="">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Smartphones</div>
-                                <h3 class="product-name">iPhone 15 Pro Max</h3>
-                                <p class="product-description">Latest flagship with A17 Pro chip, titanium design, and advanced camera system.</p>
-                                <div class="product-footer">
-                                    <div>
-                                        <span class="product-price">$1,199</span>
-                                    </div>
-                                    <button class="add-to-cart-btn" data-id="1" data-name="iPhone 15 Pro Max" data-price="1199" data-category="smartphones">
-                                        <i class="bi bi-cart-plus"></i> Añadir
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product 3 -->
-                        <div class="product-card" data-category="smartphones">
-                            <div class="product-image-wrapper">
-                                <img src="{% static 'novatech/img/laptop.png' %}" alt="">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Smartphones</div>
-                                <h3 class="product-name">iPhone 15 Pro Max</h3>
-                                <p class="product-description">Latest flagship with A17 Pro chip, titanium design, and advanced camera system.</p>
-                                <div class="product-footer">
-                                    <div>
-                                        <span class="product-price">$1,199</span>
-                                    </div>
-                                    <button class="add-to-cart-btn" data-id="1" data-name="iPhone 15 Pro Max" data-price="1199" data-category="smartphones">
-                                        <i class="bi bi-cart-plus"></i> Añadir
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product 4 -->
-                        <div class="product-card" data-category="smartphones">
-                            <div class="product-image-wrapper">
-                                <img src="{% static 'novatech/img/descarga.png' %}" alt="">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Smartphones</div>
-                                <h3 class="product-name">iPhone 15 Pro Max</h3>
-                                <p class="product-description">Latest flagship with A17 Pro chip, titanium design, and advanced camera system.</p>
-                                <div class="product-footer">
-                                    <div>
-                                        <span class="product-price">$1,199</span>
-                                    </div>
-                                    <button class="add-to-cart-btn" data-id="1" data-name="iPhone 15 Pro Max" data-price="1199" data-category="smartphones">
-                                        <i class="bi bi-cart-plus"></i> Añadir
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product 5 -->
-                        <div class="product-card" data-category="smartphones">
-                            <div class="product-image-wrapper">
-                                <img src="{% static 'novatech/img/laptop.png' %}" alt="">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Smartphones</div>
-                                <h3 class="product-name">iPhone 15 Pro Max</h3>
-                                <p class="product-description">Latest flagship with A17 Pro chip, titanium design, and advanced camera system.</p>
-                                <div class="product-footer">
-                                    <div>
-                                        <span class="product-price">$1,199</span>
-                                    </div>
-                                    <button class="add-to-cart-btn" data-id="1" data-name="iPhone 15 Pro Max" data-price="1199" data-category="smartphones">
-                                        <i class="bi bi-cart-plus"></i> Añadir
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product 6 -->
-                        <div class="product-card" data-category="smartphones">
-                            <div class="product-image-wrapper">
-                                <img src="{% static 'novatech/img/laptop.png' %}" alt="">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Smartphones</div>
-                                <h3 class="product-name">iPhone 15 Pro Max</h3>
-                                <p class="product-description">Latest flagship with A17 Pro chip, titanium design, and advanced camera system.</p>
-                                <div class="product-footer">
-                                    <div>
-                                        <span class="product-price">$1,199</span>
-                                    </div>
-                                    <button class="add-to-cart-btn" data-id="1" data-name="iPhone 15 Pro Max" data-price="1199" data-category="smartphones">
-                                        <i class="bi bi-cart-plus"></i> Añadir
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        
+                        {% endfor %}
                     </div>
                 </div>
             </div>
