@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechZone - Tienda de Electrónicos</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                <!-- Botón hamburguesa -->
+                <button class="navbar-toggler" type="button" id="navToggle">
+                    <i class="bi bi-list"></i>
+                </button>
+                
+                <a href="#" class="logo">
+                    <i class="bi bi-lightning-charge-fill"></i>
+                    <span>TECH<strong>ZONE</strong></span>
+                </a>
+
+                <div class="search-bar-container">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Buscar productos..." id="searchInput">
+                        <button type="submit"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+
+                <!--Carrito de compras-->
+                <div class="cart-widget" id="cartToggle">
+                    <i class="bi bi-cart3"></i>
+                    <span><strong id="cartTotal">$0</strong></span>
+                    <span class="cart-badge" id="cartCount">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul id="navMenu">
+                <li><a href="#" class="active">PRINCIPAL</a></li>
+                <li><a href="#">CATEGORIAS</a></li>
+                <li><a href="#">REGISTRARSE</a></li>
+                <li><a href="#">INGRESAR</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h4>Bienvenido a TechZone!</h4>
+            <h1>Compra los mejores productos en línea <i class="bi bi-lightning-charge-fill"></i></h1>
+            <div class="hero-divider"></div>
+            <p>Descubre lo último en tecnología y dispositivos electrónicos. Desde smartphones hasta portátiles, encuentra todo lo que necesitas a los mejores precios y con entrega rápida.</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="row">
+                <!-- Products -->
+                <div class="col-lg-12">
+                    <!-- Filter Bar -->
+                    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+                        <div class="filter-buttons">
+                            <button class="filter-btn active" data-filter="all">
+                                <span>Todo</span>
+                            </button>
+                            <button class="filter-btn" data-filter="smartphones">
+                                <i class="bi bi-phone"></i> Smartphones
+                            </button>
+                            <button class="filter-btn" data-filter="laptops">
+                                <i class="bi bi-laptop"></i> Laptops
+                            </button>
+                            <button class="filter-btn" data-filter="headphones">
+                                <i class="bi bi-headphones"></i> Audio
+                            </button>
+                        </div>
+                        <div class="view-toggle">
+                            <button class="active" id="gridView"><i class="bi bi-grid-3x3-gap-fill"></i></button>
+                            <button id="listView"><i class="bi bi-list-ul"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div class="products-grid" id="productsGrid">
+                        <!-- Product 1 -->
+                        <div class="product-card" data-category="smartphones">
+                            <div class="product-image-wrapper">
+                                <img src="img/descarga.png" alt="">
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Smartphones</div>
+                                <h3 class="product-name">iPhone 15 Pro Max</h3>
+                                <p class="product-description">Latest flagship with A17 Pro chip, titanium design, and advanced camera system.</p>
+                                <div class="product-footer">
+                                    <div>
+                                        <span class="product-price">$1,199</span>
+                                    </div>
+                                    <button class="add-to-cart-btn" data-id="1" data-name="iPhone 15 Pro Max" data-price="1199" data-category="smartphones">
+                                        <i class="bi bi-cart-plus"></i> Añadir
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 2 -->
+                        <div class="product-card" data-category="smartphones">
+                            <div class="product-image-wrapper">
+                                <img src="img/descarga.png" alt="">
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Smartphones</div>
+                                <h3 class="product-name">iPhone 15 Pro Max</h3>
+                                <p class="product-description">Latest flagship with A17 Pro chip, titanium design, and advanced camera system.</p>
+                                <div class="product-footer">
+                                    <div>
+                                        <span class="product-price">$1,199</span>
+                                    </div>
+                                    <button class="add-to-cart-btn" data-id="1" data-name="iPhone 15 Pro Max" data-price="1199" data-category="smartphones">
+                                        <i class="bi bi-cart-plus"></i> Añadir
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div class="product-card" data-category="smartphones">
+                            <div class="product-image-wrapper">
+                                <img src="img/laptop.png" alt="">
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Smartphones</div>
+                                <h3 class="product-name">iPhone 15 Pro Max</h3>
+                                <p class="product-description">Latest flagship with A17 Pro chip, titanium design, and advanced camera system.</p>
+                                <div class="product-footer">
+                                    <div>
+                                        <span class="product-price">$1,199</span>
+                                    </div>
+                                    <button class="add-to-cart-btn" data-id="1" data-name="iPhone 15 Pro Max" data-price="1199" data-category="smartphones">
+                                        <i class="bi bi-cart-plus"></i> Añadir
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 4 -->
+                        <div class="product-card" data-category="smartphones">
+                            <div class="product-image-wrapper">
+                                <img src="img/descarga.png" alt="">
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Smartphones</div>
+                                <h3 class="product-name">iPhone 15 Pro Max</h3>
+                                <p class="product-description">Latest flagship with A17 Pro chip, titanium design, and advanced camera system.</p>
+                                <div class="product-footer">
+                                    <div>
+                                        <span class="product-price">$1,199</span>
+                                    </div>
+                                    <button class="add-to-cart-btn" data-id="1" data-name="iPhone 15 Pro Max" data-price="1199" data-category="smartphones">
+                                        <i class="bi bi-cart-plus"></i> Añadir
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 5 -->
+                        <div class="product-card" data-category="smartphones">
+                            <div class="product-image-wrapper">
+                                <img src="img/laptop.png" alt="">
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Smartphones</div>
+                                <h3 class="product-name">iPhone 15 Pro Max</h3>
+                                <p class="product-description">Latest flagship with A17 Pro chip, titanium design, and advanced camera system.</p>
+                                <div class="product-footer">
+                                    <div>
+                                        <span class="product-price">$1,199</span>
+                                    </div>
+                                    <button class="add-to-cart-btn" data-id="1" data-name="iPhone 15 Pro Max" data-price="1199" data-category="smartphones">
+                                        <i class="bi bi-cart-plus"></i> Añadir
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 6 -->
+                        <div class="product-card" data-category="smartphones">
+                            <div class="product-image-wrapper">
+                                <img src="img/laptop.png" alt="">
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Smartphones</div>
+                                <h3 class="product-name">iPhone 15 Pro Max</h3>
+                                <p class="product-description">Latest flagship with A17 Pro chip, titanium design, and advanced camera system.</p>
+                                <div class="product-footer">
+                                    <div>
+                                        <span class="product-price">$1,199</span>
+                                    </div>
+                                    <button class="add-to-cart-btn" data-id="1" data-name="iPhone 15 Pro Max" data-price="1199" data-category="smartphones">
+                                        <i class="bi bi-cart-plus"></i> Añadir
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Dropdown -->
+    <div class="cart-dropdown" id="cartDropdown">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" id="closeCart"><i class="bi bi-x"></i></button>
+        </div>
+
+        <div class="cart-item">
+            <div class="cart-item-image">
+                <img src="img/laptop.png" class="img-fluid">
+            </div>
+            <div class="cart-item-details">
+                <div class="cart-item-name">iPhone 15 Pro Max</div>
+                <div class="cart-item-price">
+                    <div class="cart-item-price">
+                        <div class="txt1">$1,199 x 2</div>
+                    </div>
+                </div>
+            </div>
+            <button class="remove-item">
+                <i class="bi bi-trash"></i>
+            </button>
+        </div>
+
+        <div class="cart-item">
+            <div class="cart-item-image">
+                <img src="img/laptop.png" class="img-fluid">
+            </div>
+            <div class="cart-item-details">
+                <div class="cart-item-name">iPhone 15 Pro Max</div>
+                <div class="cart-item-price">
+                    <div class="cart-item-price">
+                        <div class="txt1">$1,199 x 2</div>
+                    </div>
+                </div>
+            </div>
+            <button class="remove-item">
+                <i class="bi bi-trash"></i>
+            </button>
+        </div>
+
+        <div class="cart-item">
+            <div class="cart-item-image">
+                <img src="img/laptop.png" class="img-fluid">
+            </div>
+            <div class="cart-item-details">
+                <div class="cart-item-name">iPhone 15 Pro Max</div>
+                <div class="cart-item-price">
+                    <div class="txt1">$1,199 x 2</div>
+                </div>
+            </div>
+            <button class="remove-item"">
+                <i class="bi bi-trash"></i>
+            </button>
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>TOTAL:</span>
+                <span class="cart-total-amount" id="cartTotalAmount">$Xd</span>
+            </div>
+            <div class="cart-actions">
+                <button class="btn-view-cart">VIEW CART</button>
+                <button class="btn-checkout">CHECK OUT</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h5>About TechZone</h5>
+                    <p>Your trusted source for the latest electronics and technology. We bring you premium products at competitive prices.</p>
+                </div>
+                <div class="footer-section">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Customer Service</h5>
+                    <ul>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Warranty</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe for exclusive deals and updates</p>
+                    <div class="mt-3">
+                        <input type="email" class="form-control mb-2" placeholder="Your email">
+                        <button class="btn btn-danger w-100">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechZone. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <div class="nav-overlay" id="navOverlay"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<!-- JavaScript -->
+<script src="js/script.js"></script>
+</html>
