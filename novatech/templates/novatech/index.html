@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'novatech/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'novatech/css/pagination.css' %}">
 </head>
 <body>
     <!-- Cart Overlay -->
@@ -54,7 +55,7 @@
     <nav class="main-nav">
         <div class="container">
             <ul id="navMenu">
-                <li><a href="#" class="active">PRINCIPAL</a></li>
+                <li><a href="{% url 'index' %}" class="active">PRINCIPAL</a></li>
                 <li><a href="#">CATEGORIAS</a></li>
                 <li><a href="#">REGISTRARSE</a></li>
                 <li><a href="#">INGRESAR</a></li>
@@ -124,6 +125,41 @@
                         </div>
                         {% endfor %}
                     </div>
+                    <!--Paginacion-->
+                    <div class="pagination-wrapper mt-5">
+                        <ul class="pagination-list">
+                            {% if productos.has_previous %}
+                                <li class="pagination-item">
+                                    <a href="?page=1" class="pagination-btn">&laquo;</a>
+                                </li>
+                                <li class="pagination-item">
+                                    <a href="?page={{ productos.previous_page_number }}" class="pagination-btn">&lsaquo;</a>
+                                </li>
+                            {% endif %}
+
+                            {% for num in productos.paginator.page_range %}
+                                {% if num == productos.number %}
+                                    <li class="pagination-item">
+                                        <span class="pagination-btn active">{{ num }}</span>
+                                    </li>
+                                {% elif num > productos.number|add:'-3' and num < productos.number|add:'3' %}
+                                    <li class="pagination-item">
+                                        <a href="?page={{ num }}" class="pagination-btn">{{ num }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if productos.has_next %}
+                                <li class="pagination-item">
+                                    <a href="?page={{ productos.next_page_number }}" class="pagination-btn">&rsaquo;</a>
+                                </li>
+                                <li class="pagination-item">
+                                    <a href="?page={{ productos.paginator.num_pages }}" class="pagination-btn">&raquo;</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+
                 </div>
             </div>
         </div>
